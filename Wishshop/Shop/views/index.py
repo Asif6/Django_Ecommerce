@@ -17,7 +17,7 @@ class Index(views.View):
         category=Category.objects.all()
 
         if category_id:
-            products=Product.objects.filter(sub_category_id=category_id)
+            products=Product.objects.filter(sub_category_id=category_id).order_by("-id")
         else:
             products=Product.objects.all().order_by("-id")
         data={}
